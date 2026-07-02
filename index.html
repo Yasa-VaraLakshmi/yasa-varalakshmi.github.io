@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yasa Varalakshmi — Software & AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0c0f;--surface:#111318;--card:#161a22;--border:#1e2530;--teal:#00e5c3;--teal-dim:#00b89c;--teal-glow:rgba(0,229,195,0.12);--teal-glow2:rgba(0,229,195,0.05);--text:#e8eaf0;--muted:#6b7280;--muted2:#4b5563;--serif:'DM Serif Display',serif;--mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,12,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--mono);font-size:14px;color:var(--teal);letter-spacing:0.05em}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;font-family:var(--mono);letter-spacing:0.03em;transition:color 0.2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-dot{color:var(--teal);margin-right:4px}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 2rem 4rem;max-width:1100px;margin:0 auto;position:relative}
+.hero-eyebrow{font-family:var(--mono);font-size:13px;color:var(--teal);letter-spacing:0.1em;margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--teal)}
+.hero-name{font-family:var(--serif);font-size:clamp(48px,8vw,88px);line-height:1;color:var(--text);margin-bottom:0.3rem}
+.hero-name em{color:var(--teal);font-style:italic}
+.hero-terminal{margin:2rem 0;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:640px}
+.terminal-bar{background:var(--card);padding:10px 16px;display:flex;align-items:center;gap:6px}
+.t-dot{width:10px;height:10px;border-radius:50%}
+.t-dot.r{background:#ff5f57}.t-dot.y{background:#febc2e}.t-dot.g{background:#28c840}
+.terminal-body{padding:1.2rem 1.5rem;font-family:var(--mono);font-size:13px;line-height:1.8}
+.t-prompt{color:var(--teal)}.t-text{color:#a8b4c4}.t-value{color:#e8eaf0}.t-accent{color:var(--teal)}
+.t-cursor{display:inline-block;width:8px;height:14px;background:var(--teal);animation:blink 1s step-end infinite;vertical-align:text-bottom;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:2.5rem}
+.btn-teal{background:var(--teal);color:#0a0c0f;padding:11px 26px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;font-family:var(--mono);letter-spacing:0.03em;transition:opacity 0.2s;border:none;cursor:pointer}
+.btn-teal:hover{opacity:0.85}
+.btn-outline{background:transparent;color:var(--teal);border:1px solid var(--teal);padding:10px 24px;border-radius:8px;font-size:13px;font-family:var(--mono);letter-spacing:0.03em;text-decoration:none;transition:background 0.2s}
+.btn-outline:hover{background:var(--teal-glow)}
+.hero-stats{display:flex;gap:3rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+.hstat .num{font-family:var(--serif);font-size:36px;color:var(--teal);line-height:1}
+.hstat .lbl{font-size:12px;color:var(--muted);font-family:var(--mono);margin-top:4px}
+.hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.3;pointer-events:none;z-index:-1;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.wrap{max-width:1100px;margin:0 auto;padding:5rem 2rem}
+.sec-label{font-family:var(--mono);font-size:12px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title{font-family:var(--serif);font-size:clamp(28px,4vw,42px);color:var(--text);margin-bottom:2.5rem;line-height:1.2}
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:start}
+.about-p{font-size:15px;color:#9ca3af;line-height:1.85}
+.about-p+.about-p{margin-top:1rem}
+.about-p strong{color:var(--text);font-weight:500}
+.highlight-stack{display:flex;flex-direction:column;gap:10px}
+.hl-item{border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem;background:var(--card);transition:border-color 0.2s}
+.hl-item:hover{border-color:var(--teal-dim)}
+.hl-top{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.hl-icon{width:28px;height:28px;border-radius:6px;background:var(--teal-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hl-icon svg{width:14px;height:14px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hl-title{font-size:13px;font-weight:500;color:var(--text)}
+.hl-desc{font-size:12px;color:var(--muted);padding-left:38px}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:border-color 0.25s,transform 0.25s}
+.proj-card:hover{border-color:var(--teal-dim);transform:translateY(-3px)}
+.proj-card.featured{border-color:rgba(0,229,195,0.35);background:linear-gradient(135deg,var(--card) 0%,rgba(0,229,195,0.04) 100%)}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.proj-num{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:0.08em}
+.feat-tag{font-family:var(--mono);font-size:10px;color:var(--teal);border:1px solid rgba(0,229,195,0.4);border-radius:20px;padding:2px 10px}
+.proj-name{font-family:var(--serif);font-size:20px;color:var(--text);margin-bottom:6px;line-height:1.3}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:0.8rem}
+.ptag{font-family:var(--mono);font-size:11px;color:var(--muted2);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:4px;padding:2px 8px}
+.proj-metric{font-family:var(--mono);font-size:12px;color:var(--teal);margin-top:8px;padding-top:10px;border-top:1px solid var(--border)}
+.proj-metric::before{content:'→ '}
+.constellation-wrap{position:relative;height:320px;margin-bottom:2rem;overflow:hidden;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
+#constellationCanvas{width:100%;height:100%;display:block}
+.skills-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.scat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.scat-title{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.7rem}
+.spills{display:flex;flex-wrap:wrap;gap:5px}
+.spill{font-size:12px;color:#9ca3af;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:4px;padding:3px 9px}
+.exp-timeline{position:relative;padding-left:2rem}
+.exp-timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:0;width:1px;background:var(--border)}
+.exp-item{position:relative;margin-bottom:2.5rem}
+.exp-item::before{content:'';position:absolute;left:-2rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--teal)}
+.exp-date{font-family:var(--mono);font-size:11px;color:var(--teal);margin-bottom:0.4rem;letter-spacing:0.05em}
+.exp-role{font-size:17px;font-weight:500;color:var(--text);margin-bottom:2px}
+.exp-co{font-size:14px;color:var(--muted);margin-bottom:0.8rem}
+.exp-bullets{list-style:none}
+.exp-bullets li{font-size:14px;color:#9ca3af;padding-left:16px;position:relative;margin-bottom:6px;line-height:1.6}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--teal-dim);font-family:var(--mono)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.1rem;display:flex;gap:12px;align-items:flex-start;transition:border-color 0.2s}
+.cert-card:hover{border-color:var(--teal-dim)}
+.cert-badge{width:38px;height:38px;border-radius:8px;background:var(--teal-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--mono);font-size:11px;color:var(--teal);font-weight:500}
+.cert-name{font-size:13px;font-weight:500;color:var(--text);line-height:1.4}
+.cert-org{font-size:12px;color:var(--muted);margin-top:3px;font-family:var(--mono)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-headline{font-family:var(--serif);font-size:clamp(28px,4vw,42px);color:var(--text);line-height:1.2;margin-bottom:1rem}
+.contact-sub{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:1.5rem}
+.contact-detail{display:flex;align-items:center;gap:10px;font-size:14px;color:#9ca3af;margin-bottom:8px}
+.contact-detail svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:1.8;flex-shrink:0}
+.social-links{display:flex;flex-direction:column;gap:10px}
+.slink{display:flex;align-items:center;gap:12px;padding:0.9rem 1rem;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);transition:border-color 0.2s,background 0.2s}
+.slink:hover{border-color:var(--teal-dim);background:var(--teal-glow2)}
+.slink svg{width:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:1.8;flex-shrink:0}
+.slink .slink-name{font-size:13px;font-weight:500}
+.slink .slink-handle{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:auto}
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted2)}
+footer span{color:var(--teal)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:768px){.about-grid,.contact-wrap{grid-template-columns:1fr}.hero-stats{gap:1.5rem;flex-wrap:wrap}.nav-links{display:none}.hero-name{font-size:40px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">yasa.dev</div>
+  <div class="nav-links">
+    <a href="#about"><span class="nav-dot">·</span>about</a>
+    <a href="#projects"><span class="nav-dot">·</span>projects</a>
+    <a href="#skills"><span class="nav-dot">·</span>skills</a>
+    <a href="#experience"><span class="nav-dot">·</span>experience</a>
+    <a href="#contact"><span class="nav-dot">·</span>contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Software &amp; AI Engineer — Hyderabad, India</div>
+  <h1 class="hero-name">Yasa<br><em>Varalakshmi</em></h1>
+  <div class="hero-terminal">
+    <div class="terminal-bar">
+      <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
+    </div>
+    <div class="terminal-body">
+      <div><span class="t-prompt">~/yasa $</span> <span class="t-text">whoami</span></div>
+      <div><span class="t-value">CS Engineer · AI/ML Builder · Full-Stack Developer</span></div>
+      <br>
+      <div><span class="t-prompt">~/yasa $</span> <span class="t-text">cat profile.json</span></div>
+      <div><span class="t-text">{</span></div>
+      <div>&nbsp;&nbsp;<span class="t-text">"cgpa":</span> <span class="t-accent">"9.77/10"</span><span class="t-text">,</span></div>
+      <div>&nbsp;&nbsp;<span class="t-text">"projects":</span> <span class="t-accent">8+</span><span class="t-text">,</span></div>
+      <div>&nbsp;&nbsp;<span class="t-text">"certs":</span> <span class="t-accent">["AWS", "Azure AI-900"]</span><span class="t-text">,</span></div>
+      <div>&nbsp;&nbsp;<span class="t-text">"status":</span> <span class="t-accent">"open_to_work"</span></div>
+      <div><span class="t-text">}</span></div>
+      <br>
+      <div><span class="t-prompt">~/yasa $</span> <span id="typing-text" class="t-text"></span><span class="t-cursor"></span></div>
+    </div>
+  </div>
+  <div class="hero-cta">
+    <a href="#projects" class="btn-teal">View Projects</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="num">9.77</div><div class="lbl">CGPA / 10.0</div></div>
+    <div class="hstat"><div class="num">8+</div><div class="lbl">AI/ML projects</div></div>
+    <div class="hstat"><div class="num">1yr+</div><div class="lbl">industry experience</div></div>
+    <div class="hstat"><div class="num">2</div><div class="lbl">cloud certs</div></div>
+  </div>
+</section>
+
+<section id="about" class="wrap reveal">
+  <div class="sec-label">00 — About</div>
+  <h2 class="sec-title">Building at the edge of AI and software</h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-p">I'm a <strong>Computer Science Engineering graduate</strong> from ICFAI University (CGPA 9.77/10, May 2026), passionate about building systems that fuse intelligent behaviour with solid engineering — from real-time web platforms to production AI pipelines.</p>
+      <p class="about-p">During my internship at <strong>AI SmartHome</strong>, I worked across the full AI product lifecycle — face recognition, cough detection, speaker identification, YOLOv8 object detection, LLM-powered chatbots, and full-stack web applications — gaining rare breadth for a fresher.</p>
+      <p class="about-p">I write <strong>clean, testable, well-documented code</strong>, thrive in agile environments, and care deeply about the end-user impact of every system I build. Actively seeking roles in software engineering and applied AI.</p>
+    </div>
+    <div class="highlight-stack">
+      <div class="hl-item">
+        <div class="hl-top">
+          <div class="hl-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg></div>
+          <div class="hl-title">AI & machine learning</div>
+        </div>
+        <div class="hl-desc">CV, NLP, LLMs, speaker recognition, object detection</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-top">
+          <div class="hl-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="hl-title">Full-stack development</div>
+        </div>
+        <div class="hl-desc">React, Node.js, REST APIs, SQL/NoSQL, real-time systems</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-top">
+          <div class="hl-icon"><svg viewBox="0 0 24 24"><path d="M4 17l4-4 4 4 8-8"/><path d="M20 17H4"/></svg></div>
+          <div class="hl-title">Cloud & DevOps</div>
+        </div>
+        <div class="hl-desc">AWS (certified), GCP, Azure, CI/CD, GitHub Actions</div>
+      </div>
+      <div class="hl-item">
+        <div class="hl-top">
+          <div class="hl-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+          <div class="hl-title">Academic excellence</div>
+        </div>
+        <div class="hl-desc">CGPA 9.77 · Merit scholarship ₹1,25,000 · Top of class</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="wrap reveal">
+  <div class="sec-label">01 — Projects</div>
+  <h2 class="sec-title">Things I've built</h2>
+  <div class="proj-grid">
+    <div class="proj-card featured">
+      <div class="proj-top"><span class="proj-num">01 / FEATURED</span><span class="feat-tag">flagship</span></div>
+      <div class="proj-name">WHISPR</div>
+      <div class="proj-desc">Scalable real-time messaging platform with LLM-powered features, JWT authentication, WebSocket architecture, and full cloud deployment on AWS. Includes A/B-tested prompt engineering evaluation.</div>
+      <div class="proj-tags"><span class="ptag">React</span><span class="ptag">TypeScript</span><span class="ptag">Node.js</span><span class="ptag">MongoDB</span><span class="ptag">Socket.io</span><span class="ptag">JWT</span><span class="ptag">AWS</span></div>
+      <div class="proj-metric">LLM accuracy gains documented via A/B prompt testing</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-num">02</span></div>
+      <div class="proj-name">Face Recognition & Alert System</div>
+      <div class="proj-desc">Modular computer vision pipeline with automated alert dispatch, SQL logging, REST APIs, and CI/CD deployment on AWS. Root-cause analysis reduced false-positive rates in live conditions.</div>
+      <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">OpenCV</span><span class="ptag">REST APIs</span><span class="ptag">SQL</span><span class="ptag">AWS</span></div>
+      <div class="proj-metric">~95% accuracy in live-service conditions</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-num">03</span></div>
+      <div class="proj-name">Mini ChatGPT</div>
+      <div class="proj-desc">LLM-powered conversational agent built with LangChain and structured prompt engineering. Evaluated across response coherence, latency, and relevance using measurable metrics.</div>
+      <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">LangChain</span><span class="ptag">LLMs</span><span class="ptag">Prompt Engineering</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-num">04</span></div>
+      <div class="proj-name">YOLOv8 Object Detection</div>
+      <div class="proj-desc">Real-time object detection for smarthome IoT monitoring using YOLOv8. Fine-tuned and benchmarked on custom datasets for live inference in constrained environments.</div>
+      <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">YOLOv8</span><span class="ptag">OpenCV</span><span class="ptag">Computer Vision</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-num">05</span></div>
+      <div class="proj-name">Speaker Recognition System</div>
+      <div class="proj-desc">Voice biometric identification pipeline using ML models to distinguish and verify speakers from audio samples. Built for smarthome access-control applications.</div>
+      <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">ML</span><span class="ptag">Signal Processing</span><span class="ptag">Audio DSP</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-top"><span class="proj-num">06</span></div>
+      <div class="proj-name">Cough Detection System</div>
+      <div class="proj-desc">Audio classification pipeline that identifies cough events from background noise for passive health monitoring. Designed for edge-device deployment with lightweight model architecture.</div>
+      <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">ML</span><span class="ptag">Audio Classification</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="wrap reveal">
+  <div class="sec-label">02 — Skills</div>
+  <h2 class="sec-title">Technologies & tools</h2>
+  <div class="constellation-wrap">
+    <canvas id="constellationCanvas"></canvas>
+  </div>
+  <div class="skills-cats">
+    <div class="scat"><div class="scat-title">Languages</div><div class="spills"><span class="spill">JavaScript</span><span class="spill">TypeScript</span><span class="spill">Python</span><span class="spill">Java</span><span class="spill">C/C++</span><span class="spill">SQL</span><span class="spill">C#</span></div></div>
+    <div class="scat"><div class="scat-title">Frontend</div><div class="spills"><span class="spill">React.js</span><span class="spill">HTML5</span><span class="spill">CSS3</span><span class="spill">Tailwind</span><span class="spill">Socket.io</span></div></div>
+    <div class="scat"><div class="scat-title">Backend & APIs</div><div class="spills"><span class="spill">Node.js</span><span class="spill">Express.js</span><span class="spill">REST APIs</span><span class="spill">JWT</span><span class="spill">ASP.NET Core</span></div></div>
+    <div class="scat"><div class="scat-title">Databases</div><div class="spills"><span class="spill">MongoDB</span><span class="spill">MySQL</span><span class="spill">PostgreSQL</span><span class="spill">NoSQL</span><span class="spill">ORM</span></div></div>
+    <div class="scat"><div class="scat-title">AI / ML</div><div class="spills"><span class="spill">LangChain</span><span class="spill">OpenCV</span><span class="spill">YOLOv8</span><span class="spill">LLMs</span><span class="spill">NLP</span><span class="spill">Prompt Eng.</span></div></div>
+    <div class="scat"><div class="scat-title">Cloud & DevOps</div><div class="spills"><span class="spill">AWS</span><span class="spill">GCP</span><span class="spill">Azure</span><span class="spill">Docker</span><span class="spill">CI/CD</span><span class="spill">GitHub Actions</span><span class="spill">Linux</span></div></div>
+  </div>
+</section>
+
+<section id="experience" class="wrap reveal">
+  <div class="sec-label">03 — Experience</div>
+  <h2 class="sec-title">Where I've worked</h2>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-date">Jan 2026 — May 2026</div>
+      <div class="exp-role">Software Development Engineer I</div>
+      <div class="exp-co">AI SmartHome · Hyderabad, India</div>
+      <ul class="exp-bullets">
+        <li>Architected and delivered full-stack web applications (React, Node.js/Express, REST APIs, SQL/NoSQL) with CI/CD pipelines deployed on AWS and GCP.</li>
+        <li>Built 6+ AI/ML systems — face recognition, cough detection, speaker recognition, YOLOv8 detection, Mini ChatGPT — across the complete AI product lifecycle.</li>
+        <li>Improved analytics pipeline model accuracy by ~20% through iterative hypothesis-testing and stakeholder feedback cycles.</li>
+        <li>Participated in all SDLC stages in agile/scrum; maintained technical documentation for API contracts, configuration, and deployment runbooks.</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Jun 2024 — Aug 2024</div>
+      <div class="exp-role">Software Engineer Intern</div>
+      <div class="exp-co">South Central Railways · Hyderabad, India</div>
+      <ul class="exp-bullets">
+        <li>Built RESTful APIs with Node.js/Express and SQL database integration; applied unit testing to validate API behaviour before production deployment.</li>
+        <li>Analysed real-time operational datasets to identify performance bottlenecks; produced improvement recommendations that directly informed strategic decisions.</li>
+        <li>Applied Git branching and CI/CD practices within an agile team; debugged and resolved live production issues under supervision.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap reveal">
+  <div class="sec-label">04 — Certifications</div>
+  <h2 class="sec-title">Recognition & credentials</h2>
+  <div class="cert-grid">
+    <div class="cert-card"><div class="cert-badge">AWS</div><div><div class="cert-name">AWS Academy Cloud Foundations</div><div class="cert-org">Amazon Web Services</div></div></div>
+    <div class="cert-card"><div class="cert-badge">AZ</div><div><div class="cert-name">Azure AI Fundamentals (AI-900)</div><div class="cert-org">Microsoft</div></div></div>
+    <div class="cert-card"><div class="cert-badge">NS</div><div><div class="cert-name">Data Processing & Visualization</div><div class="cert-org">NASSCOM</div></div></div>
+    <div class="cert-card"><div class="cert-badge">★</div><div><div class="cert-name">Merit Scholarship — ₹1,25,000</div><div class="cert-org">ICFAI University · CGPA 9.77/10</div></div></div>
+  </div>
+</section>
+
+<section id="contact" class="wrap reveal">
+  <div class="sec-label">05 — Contact</div>
+  <div class="contact-wrap">
+    <div>
+      <h2 class="contact-headline">Let's build something together</h2>
+      <p class="contact-sub">I'm actively seeking full-time roles in software engineering and AI/ML. Always happy to discuss projects, opportunities, or just talk tech.</p>
+      <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>yasavarshu19@gmail.com</div>
+      <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+91 83745 09846</div>
+      <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hyderabad, India — open to remote & relocation</div>
+    </div>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/yasa-varalakshmi-783a082b6" target="_blank" class="slink">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <span class="slink-name">LinkedIn</span><span class="slink-handle">yasa-varalakshmi ↗</span>
+      </a>
+      <a href="https://github.com/Yasa-VaraLakshmi" target="_blank" class="slink">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        <span class="slink-name">GitHub</span><span class="slink-handle">Yasa-VaraLakshmi ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer><span>yasa.dev</span> · designed & built with care · Hyderabad, India · 2026</footer>
+
+<script>
+const phrases=['git commit -m "open to work"','npm run build --production','python train.py --model llm','./deploy.sh --env aws-prod'];
+let pi=0,ci=0,del=false;
+const el=document.getElementById('typing-text');
+function type(){const p=phrases[pi];if(!del){el.textContent=p.slice(0,++ci);if(ci===p.length){del=true;setTimeout(type,1800);return}}else{el.textContent=p.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length}}setTimeout(type,del?40:80)}
+type();
+
+const canvas=document.getElementById('constellationCanvas');
+const ctx=canvas.getContext('2d');
+const skills=['React','Python','Node.js','AWS','TypeScript','MongoDB','LangChain','OpenCV','YOLOv8','SQL','Docker','Express','JWT','CI/CD','GCP','Azure','LLMs','NLP'];
+let nodes=[];
+function resize(){const r=canvas.parentElement.getBoundingClientRect();canvas.width=r.width;canvas.height=r.height;nodes=skills.map(s=>({label:s,x:60+Math.random()*(canvas.width-120),y:30+Math.random()*(canvas.height-60),vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4,r:4+Math.random()*2}))}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<160){ctx.beginPath();ctx.strokeStyle=`rgba(0,229,195,${0.15*(1-d/160)})`;ctx.lineWidth=0.5;ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke()}}
+nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle='rgba(0,229,195,0.6)';ctx.fill();ctx.font='11px JetBrains Mono,monospace';ctx.fillStyle='rgba(168,180,196,0.9)';ctx.fillText(n.label,n.x+n.r+4,n.y+4);n.x+=n.vx;n.y+=n.vy;if(n.x<20||n.x>canvas.width-20)n.vx*=-1;if(n.y<20||n.y>canvas.height-20)n.vy*=-1});requestAnimationFrame(draw)}
+window.addEventListener('resize',resize);resize();draw();
+
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
